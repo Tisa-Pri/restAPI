@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    
+    <!-- Font -->
+    <link rel="stylesheet" href="https://use.typekit.net/dkj5pow.css">
+
+    <!-- Title -->
+    <title>NASA Pic of the Day</title>
+</head>
+<body>
+    <!-- Nasa logo -->
+    <header>
+        <img src="/assets/images/NASA.png" alt="NASA logo" id="nasa-logo">
+        <h1>NASA Astronomy Picture of the Day</h1>
+    </header>
+
+    <!-- Select date content -->
+
+    <main class="container">
+        <p>Select a date to view picture of the day:</p>
+        <input type="date" id="date-picker">
+        <button onclick="getPhoto()">Get Photo</button>
+        <div id="photo-info"></div>
+    </main>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
