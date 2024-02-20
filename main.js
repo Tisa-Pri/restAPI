@@ -4,16 +4,19 @@ console.log('test this');
 async function getPhoto() {
     try {
         const datePicker = document.getElementById('date-picker');
-        const selectedDate = datePicker.value;
+        const selectedDate = new Date(datePicker.value);
+        const currentDate = new Date();
+
+        if (selectedDate.getTime() > currentDate.getTime()) {
+            alert("Please select a date from 1995 to present date.");
+            return;
+        }
 
         // API 
-        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=8xBW8Ng3m010gifi3J3VTorthslSfa8K8JwdzhcV&date=${selectedDate}`);
+        const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=8xBW8Ng3m010gifi3J3VTorthslSfa8K8JwdzhcV&date=${selectedDate.toISOString().split('T')[0]}`);
         const data = await response.json();
         
         document.body.style.backgroundImage = `url('${data.url}')`;
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center';
-        document.body.style.backgroundAttachment = 'fixed';
 
         const photoInfo = document.getElementById('photo-info');
         photoInfo.innerHTML = `
@@ -23,7 +26,7 @@ async function getPhoto() {
     } catch (error) {
         console.error('Error fetching APOD:', error);
         const photoInfo = document.getElementById('photo-info');
-        photoInfo.innerHTML = '<p>Error fetching APOD. Please try again later.</p>';
+        photoInfo.innerHTML = '<p>Error fetching APOD. Please select a date or try again later.</p>';
     }
 }
 
