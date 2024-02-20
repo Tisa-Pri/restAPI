@@ -21,9 +21,9 @@ async function getPhoto() {
             <p>${data.explanation}</p>
         `;
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching APOD:', error);
         const photoInfo = document.getElementById('photo-info');
-        photoInfo.innerHTML = '<p>Error fetching data. Please try again later.</p>';
+        photoInfo.innerHTML = '<p>Error fetching APOD. Please try again later.</p>';
     }
 }
 
