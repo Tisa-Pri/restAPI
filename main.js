@@ -8,7 +8,7 @@ async function getPhoto() {
         const currentDate = new Date();
 
         if (selectedDate.getTime() > currentDate.getTime()) {
-            alert("Please select a date from 1995 to present date.");
+            alert("Please select a date from June 16, 1995 to present date.");
             return;
         }
 
